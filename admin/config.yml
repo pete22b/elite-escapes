@@ -1,0 +1,14 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "img"
+public_folder: "/img"
+collections:
+  - name: "pages"
+    label: "หน้าเว็บ"
+    files:
+      - file: "index.html"
+        label: "หน้าแรก (Home)"
+        name: "home"
+        fields:
+          - {label: "หัวข้อ Hero", name: "title", widget: "string"}
