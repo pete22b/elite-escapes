@@ -2,14 +2,21 @@ backend:
   name: github
   repo: pete22b/elite-escapes
   branch: main
+
 media_folder: "img"
 public_folder: "/img"
+
+media_library:
+  name: default
+
+# เอา collection pages เดิมที่แก้ index.html ออก (อันตราย เขียนทับ HTML)
+# ใส่ collection เปล่าๆ ที่ไม่แตะ HTML แทน เพื่อให้ CMS เปิดได้โดยไม่ error
 collections:
-  - name: "pages"
-    label: "หน้าเว็บ"
+  - name: "images_info"
+    label: "คู่มือเปลี่ยนรูป"
     files:
-      - file: "index.html"
-        label: "หน้าแรก (Home)"
-        name: "home"
+      - file: "admin/how-to.md"
+        label: "วิธีเปลี่ยนรูป (อ่านอย่างเดียว)"
+        name: "howto"
         fields:
-          - {label: "หัวข้อ Hero", name: "title", widget: "string"}
+          - {label: "หมายเหตุ", name: "note", widget: "text"}
