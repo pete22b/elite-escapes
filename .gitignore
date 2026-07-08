@@ -1,0 +1,13 @@
+# --- Internal / not for the public site (repo is public for GitHub Pages) ---
+Update_2026_-Club_Unique_Website_01_07_2026.xlsx
+CLAUDE.md
+deploy/
+
+# --- Claude Code local settings ---
+.claude/
+
+# --- OS / editor junk ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
