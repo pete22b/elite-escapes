@@ -6,11 +6,6 @@ backend:
 media_folder: "img"
 public_folder: "/img"
 
-media_library:
-  name: default
-
-# เอา collection pages เดิมที่แก้ index.html ออก (อันตราย เขียนทับ HTML)
-# ใส่ collection เปล่าๆ ที่ไม่แตะ HTML แทน เพื่อให้ CMS เปิดได้โดยไม่ error
 collections:
   - name: "images_info"
     label: "คู่มือเปลี่ยนรูป"
