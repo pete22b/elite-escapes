@@ -154,7 +154,7 @@
         <h3>Contact Us</h3>
         <ul>
           <li>Tel: <a href="tel:+6676683083">+66 76 683 083</a></li>
-          <li>Email: <a href="mailto:rsvnm@elite-escapes.club">rsvnm@elite-escapes.club</a></li>
+          <li>Email: <a href="mailto:memberservices@elite-escapes.club">memberservices@elite-escapes.club</a></li>
           <li><a href="https://www.google.com/maps?q=7.878621214917317,98.30227598304992" target="_blank" rel="noopener">Get Directions</a></li>
           <li>Instagram: <a href="https://www.instagram.com/eliteescapes.official" target="_blank" rel="noopener">@eliteescapes.official</a></li>
           <li>Facebook: <a href="https://www.facebook.com/profile.php?id=61590205692495" target="_blank" rel="noopener">Elite Escapes</a></li>
@@ -207,13 +207,13 @@
           document.getElementById('booking-thanks').style.display='block';
         } else {
           r.json().then(function(d){
-            alert(d && d.errors ? d.errors.map(function(x){return x.message;}).join(', ') : 'Sorry, something went wrong. Please try again or email rsvnm@elite-escapes.club.');
-          }).catch(function(){alert('Sorry, something went wrong. Please email rsvnm@elite-escapes.club.');});
+            alert(d && d.errors ? d.errors.map(function(x){return x.message;}).join(', ') : 'Sorry, something went wrong. Please try again or email memberservices@elite-escapes.club.');
+          }).catch(function(){alert('Sorry, something went wrong. Please email memberservices@elite-escapes.club.');});
           if(btn){btn.disabled=false;btn.textContent='Send to Concierge';}
         }
       })
       .catch(function(){
-        alert('Network error. Please try again or email rsvnm@elite-escapes.club.');
+        alert('Network error. Please try again or email memberservices@elite-escapes.club.');
         if(btn){btn.disabled=false;btn.textContent='Send to Concierge';}
       });
   });
