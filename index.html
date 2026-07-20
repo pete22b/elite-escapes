@@ -242,7 +242,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       var $ = function(id){ return document.getElementById(id); };
       var esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
       var digits = function(s){ return String(s).replace(/[^0-9]/g,''); };
-      if(d.hero_image){ var bg=$('hero-bg'); if(bg) bg.style.backgroundImage = "url('" + d.hero_image + "')"; }
+      if(d.hero_image){ var bg=$('hero-bg'); if(bg){ var hi=String(d.hero_image).replace(/^\/+/,''); bg.style.backgroundImage = "url('" + encodeURI(hi) + "')"; } }
       if(d.hero_title){ var t=$('hero-title'); if(t) t.innerHTML = esc(d.hero_title).replace(/Phuket/g, '<span style="color:var(--accent)">Phuket</span>'); }
       if(d.hero_subtitle){ var s=$('hero-subtitle'); if(s) s.textContent = d.hero_subtitle; }
       if(d.phone){ var p=$('c-phone'); if(p){ p.textContent = d.phone; p.href = 'tel:+' + digits(d.phone); } var ct=$('c-tel'); if(ct) ct.href = 'tel:+' + digits(d.phone); }
