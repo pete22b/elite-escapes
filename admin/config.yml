@@ -7,11 +7,15 @@ media_folder: "img"
 public_folder: "/img"
 
 collections:
-  - name: "images_info"
-    label: "คู่มือเปลี่ยนรูป"
+  - name: "home"
+    label: "หน้าแรก"
     files:
-      - file: "admin/how-to.md"
-        label: "วิธีเปลี่ยนรูป (อ่านอย่างเดียว)"
-        name: "howto"
+      - file: "_data/home.json"
+        label: "หน้าแรก (Home)"
+        name: "home"
         fields:
-          - {label: "หมายเหตุ", name: "note", widget: "text"}
+          - {label: "รูป Hero", name: "hero_image", widget: "image"}
+          - {label: "หัวข้อ", name: "hero_title", widget: "string"}
+          - {label: "คำโปรย", name: "hero_subtitle", widget: "text"}
+          - {label: "เบอร์โทร", name: "phone", widget: "string"}
+          - {label: "อีเมล", name: "email", widget: "string"}
