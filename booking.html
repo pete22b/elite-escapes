@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://vpsrfukevrcaapwlkoop.supabase.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T01T976Q51"></script>
 <script>
@@ -162,6 +162,14 @@
       e.preventDefault();
       var btn=form.querySelector('button[type="submit"]');
       if(btn){btn.disabled=true;btn.textContent='Sending...';}
+      // Also record the request into the Elite Escapes extranet (Bookings tab).
+      // Fire-and-forget: never blocks or fails the member's concierge email.
+      try{
+        var fd=new FormData(form),p={};fd.forEach(function(v,k){p[k]=v;});
+        p.source='website';p.submitted_at=new Date().toISOString();
+        fetch('https://vpsrfukevrcaapwlkoop.supabase.co/functions/v1/booking-webhook?key=EEbook_7Kq2x',
+          {method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify(p)}).catch(function(){});
+      }catch(_){}
       fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
         .then(function(r){
           if(r.ok){
